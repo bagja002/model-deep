@@ -10,8 +10,7 @@ from tensorflow.keras.applications.inception_v3 import preprocess_input
 import numpy as np
 
 app = Flask(__name__)
-CORS(app)  # Allow cross-origin requests
-
+CORS(app, resources={r"/upload": {"origins": "http://skripsi-bagja.ikulatluh.cloud"}})
 @app.route('/upload', methods=['POST'])
 @cross_origin()  # Add this decorator to allow cross-origin requests
 def upload_image():
